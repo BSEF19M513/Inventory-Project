@@ -4,16 +4,7 @@ import AuthContext from "../AuthContext";
 import Barcode from "react-barcode";
 
 function PurchaseDetails() {
-  const itemsData = [
-    {
-      itemNo: 1,
-      barCode: '1234'
-    },
-    {
-      itemNo: 2,
-      barCode: '5678'
-    }
-  ];
+  
   const [showPurchaseModal, setPurchaseModal] = useState(false);
   const [purchase, setAllPurchaseData] = useState([]);
   const [products, setAllProducts] = useState([]);
@@ -27,7 +18,7 @@ function PurchaseDetails() {
   }, [updatePage]);
 
   const fetchPurchaseData = () => {
-    fetch(`http://localhost:4000/api/purchase/get/${authContext.user}`)
+    fetch(`http://localhost:4002/api/sales/get`)
       .then((response) => response.json())
       .then((data) => {
         setAllPurchaseData(data);
@@ -78,11 +69,14 @@ function PurchaseDetails() {
               </tr>
             </thead>
             <tbody>
-              {itemsData.map((item) => (
-                <tr key={item.itemNo} className="text-center">
-                  <td className="border p-1">{item.itemNo}</td>
+              {purchase.map((item, index) => (
+                <tr key={index}>
+                  <td className="border p-1 text-center ">{item.barcode}</td>
                   <td className="border p-1">
-                    <Barcode value={item.barCode} />
+                    <Barcode value={item.barcode}
+                    // show only barcode (without value in the bottom)
+                    displayValue={false}
+                    />
                   </td>
                 </tr>
               ))}

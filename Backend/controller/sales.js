@@ -1,5 +1,6 @@
 const Sales = require("../models/sales");
 const soldStock = require("../controller/soldStock");
+const store = require("../controller/store");
 
 // Add Sales
 const addSales = (req, res) => {
@@ -11,15 +12,27 @@ const addSales = (req, res) => {
     dateCompleted: req.body.dateCompleted
   });
 
-  addSale
-    .save()
-    .then((result) => {
-      soldStock(req.body.productID, req.body.stockSold);
-      res.status(200).send(result);
-    })
-    .catch((err) => {
-      res.status(402).send(err);
-    });
+  store.getStoreByBarcode(req.body.barcode).then((result) => {
+  // search the barcode in the store if it exists then add the sale
+  // and remove the stock from the store and add it to the sales
+  // use store api to get the stock and update it
+  // use soldStock api to add the stock to the soldStock
+    
+    if (result.length > 0) {
+      addSale.save().then((result) => {
+        // remove the stock from the store
+        store.removeStock(req.body.barcode);
+        res.status(200).send(result);
+      }
+      ).catch((err) => {
+        res.send(err);
+      });
+    } else {
+      alert("Barcode not found");
+    }
+  }).catch((err) => {
+    res.send(err);
+  });
 };
 
 

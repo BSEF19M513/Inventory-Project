@@ -133,12 +133,13 @@ function Sales() {
                       */}
                       <span
                         className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                          element.dateRequired < element.dateCompleted
+                          // here I want to change the date and want to add today date
+                          new Date() < element.dateCompleted
                           ? "bg-red-100 text-red-800"
                           : "bg-green-100 text-green-800"
                           }`}
                       >
-                        {element.dateRequired < element.dateCompleted
+                        {new Date() < element.dateCompleted
                           ? "Not Received"
                           : "Received"}
                       </span>

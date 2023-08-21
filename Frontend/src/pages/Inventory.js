@@ -116,58 +116,6 @@ function Inventory() {
                     Last 7 days
                   </span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    $2000
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Revenue
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3 p-10  w-full  md:w-3/12  sm:border-y-2 md:border-x-2 md:border-y-0">
-              <span className="font-semibold text-purple-600 text-base">
-                Top Selling
-              </span>
-              <div className="flex gap-8">
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    5
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Last 7 days
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    $1500
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">Cost</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3 p-10  w-full  md:w-3/12  border-y-2  md:border-x-2 md:border-y-0">
-              <span className="font-semibold text-red-600 text-base">
-                Low Stocks
-              </span>
-              <div className="flex gap-8">
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    12
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Ordered
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-semibold text-gray-600 text-base">
-                    2
-                  </span>
-                  <span className="font-thin text-gray-400 text-xs">
-                    Not in Stock
-                  </span>
-                </div>
               </div>
             </div>
           </div>

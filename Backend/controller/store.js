@@ -26,4 +26,14 @@ const getAllStores = async (req, res) => {
   res.json(findAllStores);
 };
 
-module.exports = { addStore, getAllStores };
+const getStoreByBarcode = async (barcode) => {
+  const findStore = await Store.find({ barcode: barcode });
+  return findStore;
+};
+
+const removeStock = async (barcode) => {
+  const findStore = await Store.deleteOne({ barcode: barcode });
+  return findStore;
+};
+
+module.exports = { addStore, getAllStores , getStoreByBarcode, removeStock};
